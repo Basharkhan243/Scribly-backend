@@ -4,7 +4,7 @@ import cookieParser from 'cookie-parser';
 const app= express();
 
 app.use(cors({
-    origin: process.env.CORS_ORIGIN || "https://scribly-frontend-j8ps.vercel.app/",
+    origin: "https://scribly-frontend-j8ps.vercel.app/",
     credentials: true 
 }))
 
