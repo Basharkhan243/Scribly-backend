@@ -15,9 +15,10 @@ router.use(verifyJWT);
 
 router.post("/createnote", createNote);
 router.get("/getmynotes", getMyNotes);
+router.get("/publicnotes", getPublicNotes); 
 router.get("/:id", getNoteById);
 router.put("/:id", updateNote);
 router.delete("/:id", deleteNote);
-router.get("/publicnotes", getPublicNotes); 
+
 
 export default router;
