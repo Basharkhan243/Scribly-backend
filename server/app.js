@@ -7,7 +7,7 @@ app.use(cors({
     origin: "https://scribly-frontend-j8ps.vercel.app",
     credentials: true 
 }))
-app.options("*", cors()); // ✅ Handles preflight OPTIONS requests
+
 
 
 app.use(express.json({limit: "16kb"}))
