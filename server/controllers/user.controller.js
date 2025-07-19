@@ -39,7 +39,8 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
         }
         const option={
             httpOnly:true,
-            secure:true
+            secure:true,
+            sameSite: "None"
         }
         const {accessToken, refreshToken} = await generateAccessAndRefereshTokens(user._id);
         return res
@@ -124,7 +125,8 @@ const loginUser= asyncHandler(async(req,res,next)=>{
     const userData = await User.findById(user._id).select("-password -refreshToken");
     const option={
         httpOnly:true,
-        secure:true
+        secure:true,
+        sameSite: "None"
     }
 
     return res
@@ -154,7 +156,8 @@ const logoutUser = asyncHandler(async (req, res, next) => {
 )
 const option={
     httpOnly:true,
-    secure:true
+    secure:true,
+    sameSite: "None"
 }
 return res
     .status(200)
