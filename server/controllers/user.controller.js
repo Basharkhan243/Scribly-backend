@@ -5,7 +5,7 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 import jwt from "jsonwebtoken";
 import mongoose from 'mongoose';
 
-// Generate access token
+
 const generateAccessAndRefereshTokens = async(userId) =>{
     try {
         const user = await User.findById(userId)
@@ -22,7 +22,7 @@ const generateAccessAndRefereshTokens = async(userId) =>{
         throw new ApiError(500, "Something went wrong while generating referesh and access token")
     }
 }
-// Generate refresh token
+
 const refreshAccessToken = asyncHandler(async (req, res) => {
     const incomingRefreshToken = req.cookies.refreshToken || req.body.refreshToken || req.query.refreshToken;
     if (!incomingRefreshToken) {
@@ -64,7 +64,7 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
     }
 })
 
-// Register a new user
+
 const RegisterUser = asyncHandler(async (req, res, next) => {
   const { name, email, password } = req.body;
 
@@ -97,7 +97,7 @@ const RegisterUser = asyncHandler(async (req, res, next) => {
   );
 });
 
-// login user
+
 const loginUser= asyncHandler(async(req,res,next)=>{
     const {email, password}= req.body;
 
@@ -144,7 +144,7 @@ const loginUser= asyncHandler(async(req,res,next)=>{
     )
 })
 
-// logout user
+
 
 const logoutUser = asyncHandler(async (req, res, next) => {
     await User.findByIdAndUpdate(req.user._id, { 
